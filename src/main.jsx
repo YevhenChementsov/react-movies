@@ -8,7 +8,7 @@ import 'modern-normalize/modern-normalize.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/react-movies/">
+    <BrowserRouter basename="/react-movies">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

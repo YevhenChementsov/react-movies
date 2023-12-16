@@ -1,9 +1,9 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import svgr from 'vite-plugin-svgr'
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  base: '/react-movies/',
+  base: '/react-movies',
   plugins: [react(), svgr()],
   resolve: {
     alias: {
@@ -11,6 +11,6 @@ export default defineConfig({
       components: ['/src/components'],
       pages: ['/src/pages'],
       services: ['/src/services'],
-    }
+    },
   },
 });
