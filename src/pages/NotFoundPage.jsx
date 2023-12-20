@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <main>
       <b>404</b>
-      <p>Sorry, we couldn&apos;t find that page :(</p>
+      <p>Sorry, we couldn&#39;t find that page &#58;&#40;</p>
       <Link to="/">Back Home</Link>
     </main>
   );

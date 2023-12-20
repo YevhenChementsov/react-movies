@@ -5,14 +5,14 @@
 
 ## «Movie Search» App.
 
-Create basic routing for a movie search and storage app. Preview of the of the
+An application for finding and storing movies with basic routing. Preview of the
 working application
 [see here](https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing).
 
 ### 1. API `themoviedb.org`
 
-Use the [themoviedb.org](https://www.themoviedb.org/) API for the backend. You
-need to register (you can enter any data) and get an API key. The following
+The [themoviedb.org](https://www.themoviedb.org/) API is used for the backend.
+You need to register (you can enter any data) and get an API key. The following
 endpoints will be used in this work:
 
 - [/trending/get-trending](https://developers.themoviedb.org/3/trending/get-trending)
@@ -31,9 +31,8 @@ endpoints will be used in this work:
 
 ### 2. Routes
 
-The application should have the following routes. If a user enters the
-application via a non-existent route, the user should be redirected to the home
-page.
+If a user visits a non-existent route, they should be redirected to the home
+page. The application will use the following routes:
 
 - `'/'` - component `<HomePage/>`, the home page with a list of popular films.
 - `'/movies'` - component `<MoviesPage/>`, the page for searching for films by
@@ -50,5 +49,5 @@ page.
 
 ### 3. Code Splitting
 
-Add asynchronous loading of JS code for application routes using `React.lazy()`
-and `Suspense`.
+Asynchronous loading of JS code is added for application routes using
+`React.lazy()` and `Suspense`.

@@ -5,50 +5,52 @@
 
 ## Приложение - «Кинопоиск».
 
-Создай базовую маршрутизацию для приложения поиска и хранения фильмов. Превью
+Приложение для поиска и хранения фильмов с базовой маршрутизацией. Превью
 рабочего приложения
 [смотри по ссылке](https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing).
 
 ### 1. API `themoviedb.org`
 
-Для бекенда используй [themoviedb.org](https://www.themoviedb.org/) API.
+Для бекенда используется [themoviedb.org](https://www.themoviedb.org/) API.
 Необходимо зарегистриваться (можно ввести произвольные данные) и получить
-API-ключ. В этой работе будут использоваться следующие ендпоинты:
+API-ключ. В этом приложении будут использоваться следующие ендпоинты:
 
-- [/trending/get-trending](https://developers.themoviedb.org/3/trending/get-trending)
+- [/trending/get-trending](https://developers.themoviedb.org/3/trending/get-trending) -
   список самых популярных фильмов на сегодня для создания коллекции на главной
   странице.
-- [/search/search-movies](https://developers.themoviedb.org/3/search/search-movies)
+- [/search/search-movies](https://developers.themoviedb.org/3/search/search-movies) -
   поиск кинофильма по ключевому слову на странице фильмов.
-- [/movies/get-movie-details](https://developers.themoviedb.org/3/movies/get-movie-details)
+- [/movies/get-movie-details](https://developers.themoviedb.org/3/movies/get-movie-details) -
   запрос полной информации о фильме для страницы кинофильма.
-- [/movies/get-movie-credits](https://developers.themoviedb.org/3/movies/get-movie-credits)
+- [/movies/get-movie-credits](https://developers.themoviedb.org/3/movies/get-movie-credits) -
   запрос информации о актёрском составе для страницы кинофильма.
-- [/movies/get-movie-reviews](https://developers.themoviedb.org/3/movies/get-movie-reviews)
+- [/movies/get-movie-reviews](https://developers.themoviedb.org/3/movies/get-movie-reviews) -
   запрос обзоров для страницы кинофильма.
 
 [Ссылка на документацию](https://developers.themoviedb.org/3/getting-started/introduction)
+по работе с The Movie Database (TMDB) API.
 
 ### 2. Маршруты
 
-В приложении должны быть следующие маршруты. Если пользователь зашел по
-несуществующему маршруту, его необходимо перенаправлять на домашнюю страницу.
+Если пользователь зашел по несуществующему маршруту, его необходимо
+перенаправлять на домашнюю страницу. В приложении будут использоваться следующие
+маршруты:
 
-- `'/'` - компонент `<HomePage/>`, домашняя страница со списком популярных
+- `'/'` - компонент `<HomePage />`, домашняя страница со списком популярных
   кинофильмов.
-- `'/movies'` - компонент `<MoviesPage/>`, страница поиска фильмов по ключевому
+- `'/movies'` - компонент `<MoviesPage />`, страница поиска фильмов по ключевому
   слову.
-- `'/movies/:movieId'` - компонент `<MovieDetailsPage/>`, страница с детальной
+- `'/movies/:movieId'` - компонент `<MovieDetailsPage />`, страница с детальной
   информацией о кинофильме.
-- `/movies/:movieId/cast` - компонент `<Cast/>`, информация о актерском составе.
-  Рендерится на странице `<MovieDetailsPage/>`.
-- `/movies/:movieId/reviews` - компонент `<Reviews/>`, информация об обзорах.
-  Рендерится на странице `<MovieDetailsPage/>`.
-- `*` - компонент `<NotFoundPage/>`, страница "404" или страница с
+- `/movies/:movieId/cast` - компонент `<Cast />`, информация о актерском
+  составе. Рендерится на странице `<MovieDetailsPage />`.
+- `/movies/:movieId/reviews` - компонент `<Reviews />`, информация об обзорах.
+  Рендерится на странице `<MovieDetailsPage />`.
+- `*` - компонент `<NotFoundPage />`, страница "404" или страница с
   несуществующим маршрутом, с которой пользователь будет перенаправляться на
   домашнюю страницу с помощью ссылки или кнопки.
 
 ### 3. Code Splitting (разделение кода)
 
-Добавь асинхронную загрузку JS-кода для маршрутов приложения используя
+Для маршрутов приложения добавляется асинхронная загрузка JS-кода, используя
 `React.lazy()` и `Suspense`.
