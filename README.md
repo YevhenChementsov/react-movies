@@ -7,7 +7,7 @@
 
 Приложение для поиска и хранения фильмов с базовой маршрутизацией. Превью
 рабочего приложения
-[смотри по ссылке](https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing).
+[смотри по ссылке](https://drive.google.com/file/d/1RGJvTXLM8cSTtc9CUXUjcFf1WteMzrS3/view?usp=sharing).
 
 ### 1. API `themoviedb.org`
 

@@ -7,7 +7,7 @@
 
 Застосунок для пошуку та зберігання фільмів із базовою маршрутизацією. Прев'ю
 робочого додатка
-[дивись за посиланням](https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing).
+[дивись за посиланням](https://drive.google.com/file/d/1RGJvTXLM8cSTtc9CUXUjcFf1WteMzrS3/view?usp=sharing).
 
 ### 1. API `themoviedb.org`
 
