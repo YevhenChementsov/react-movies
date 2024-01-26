@@ -7,10 +7,11 @@ export default defineConfig({
   plugins: [react(), svgr()],
   resolve: {
     alias: {
+      api: ['/src/api'],
       assets: ['/src/assets'],
       components: ['/src/components'],
+      hooks: ['/src/hooks'],
       pages: ['/src/pages'],
-      services: ['/src/services'],
     },
   },
 });

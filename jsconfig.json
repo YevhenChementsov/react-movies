@@ -3,10 +3,11 @@
     "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
+      "api/*": ["api/*"],
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
-      "pages/*": ["pages/*"],
-      "services/*": ["services/*"]
+      "hooks/*": ["hooks/*"],
+      "pages/*": ["pages/*"]
     }
   }
 }
