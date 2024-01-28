@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 const useAxios = ({ axiosInstance, method, url, requestConfig = {} }) => {
   const [response, setResponse] = useState([]);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
+    setLoading(true);
     const fetchData = async () => {
       try {
         const res = await axiosInstance[method.toLowerCase()](url, {

@@ -1,13 +1,20 @@
 import { Suspense } from 'react';
 
 import Loader from 'components/Loader/Loader';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
+  const navigate = useNavigate();
+
+  const goBack = () => navigate(-1);
+
   return (
     <>
-      <h1>{movieId}</h1>
+      <button type="button" onClick={() => goBack()}>
+        Back
+      </button>
+      <h2>{movieId}</h2>
       <ul>
         <li>
           <Link to="cast">Cast</Link>

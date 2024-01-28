@@ -1,5 +1,6 @@
 import axios from 'api/tmdbApi';
 import useAxios from 'hooks/useAxios';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [movies] = useAxios({
@@ -9,13 +10,16 @@ const Home = () => {
   });
   console.log(movies);
   return (
-    <div>
+    <>
+      <h2>Trending today</h2>
       <ul>
         {movies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
