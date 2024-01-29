@@ -3,6 +3,7 @@
   "bracketSameLine": false,
   "bracketSpacing": true,
   "jsxSingleQuote": false,
+  "plugins": ["prettier-plugin-tailwindcss"],
   "printWidth": 80,
   "proseWrap": "always",
   "semi": true,
