@@ -1,10 +1,13 @@
-const Footer = () => {
-  return (
-    <>
-      <b>&copy; 2023-2024 React Movies</b>
-      <em> by Yevhen Chementsov. All Rights reserved.</em>
-    </>
-  );
+import PropTypes from 'prop-types';
+
+const Footer = ({ children }) => (
+  <footer className="mobile:flex-col flex min-h-16 items-center justify-center gap-1">
+    {children}
+  </footer>
+);
+
+Footer.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Footer;

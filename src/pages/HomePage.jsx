@@ -11,11 +11,13 @@ const Home = () => {
   console.log(movies);
   return (
     <>
-      <h2>Trending today</h2>
+      <h2 className="py-4 text-2xl font-semibold">Trending today</h2>
       <ul>
         {movies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          <li key={movie.id} className="list-inside list-disc">
+            <Link to={`/movies/${movie.id}`} className="hover:text-red-400">
+              {movie.title}
+            </Link>
           </li>
         ))}
       </ul>
