@@ -1,15 +1,16 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 import axiosInstance from 'api/tmdbApi';
 import Loader from 'components/Loader/Loader';
-import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
-  const [err, setError] = useState('');
+  // const [err, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
-  const navigate = useNavigate();
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const controller = new AbortController();
@@ -23,7 +24,7 @@ const MovieDetails = () => {
         setMovie(res.data);
         setLoading(false);
       } catch (error) {
-        setError(error.message);
+        // setError(error.message);
         console.log(error);
       }
     };
@@ -34,7 +35,6 @@ const MovieDetails = () => {
       controller.abort();
     };
   }, [movieId]);
-  console.log(err);
 
   return (
     <>
@@ -48,19 +48,33 @@ const MovieDetails = () => {
         <Loader />
       ) : (
         <>
-          <button className="" type="button" onClick={() => navigate(-1)}>
+          <Link
+            to={backLinkRef.current}
+            className="mt-4 inline-block rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
+          >
             &#8920; Go back
-          </button>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
-            alt={movie?.title}
-          />
-          <ul>
+          </Link>
+          <div className="mt-2 flex pb-4 shadow-lg">
+            <img
+              className="rounded-lg"
+              src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
+              alt={movie?.title}
+            />
+          </div>
+          <ul className="mt-4">
+            <h3>Additional Information:</h3>
             <li>
-              <Link to="cast">Cast</Link>
+              <Link className="ml-4 text-blue-600 hover:text-red-400" to="cast">
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to="reviews">Reviews</Link>
+              <Link
+                className="ml-4 text-blue-600 hover:text-red-400"
+                to="reviews"
+              >
+                Reviews
+              </Link>
             </li>
           </ul>
         </>

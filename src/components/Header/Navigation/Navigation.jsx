@@ -5,7 +5,7 @@ const setActiveColor = ({ isActive }) => (isActive ? 'text-red-400' : '');
 const Navigation = () => {
   return (
     <>
-      <nav className="flex gap-2 px-5 text-lg">
+      <nav className="flex gap-2 text-lg">
         <NavLink to="/" className={setActiveColor}>
           Home
         </NavLink>
