@@ -7,8 +7,12 @@ const HomePage = lazy(() => import('pages/HomePage'));
 const MovieDetailsPage = lazy(() => import('pages/MovieDetailsPage'));
 const MoviesPage = lazy(() => import('pages/MoviesPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
-const Cast = lazy(() => import('components/Main/Cast/Cast'));
-const Reviews = lazy(() => import('components/Main/Reviews/Reviews'));
+const Cast = lazy(() =>
+  import('components/Layout/Main/MovieDetails/AdditionalInfo/Cast/Cast'),
+);
+const Reviews = lazy(() =>
+  import('components/Layout/Main/MovieDetails/AdditionalInfo/Reviews/Reviews'),
+);
 
 const App = () => {
   return (

@@ -1,10 +1,12 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 
 import axiosInstance from 'api/tmdbApi';
+import AdditionalInfo from 'components/Layout/Main/MovieDetails/AdditionalInfo/AdditionalInfo';
+import MovieDetails from 'components/Layout/Main/MovieDetails/MovieDetails';
 import Loader from 'components/Loader/Loader';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   // const [err, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,50 +37,25 @@ const MovieDetails = () => {
       controller.abort();
     };
   }, [movieId]);
-
   return (
     <>
-      {/* original title(release date)
-      tagline
-      vote runtime
-      average
-      overview
-      genres */}
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Link
-            to={backLinkRef.current}
-            className="mt-4 inline-block rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
-          >
-            &#8920; Go back
-          </Link>
-          <div className="mt-2 flex pb-4 shadow-lg">
-            <img
-              className="rounded-lg"
-              src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
-              alt={movie?.title}
-            />
-          </div>
-          <ul className="mt-4">
-            <h3>Additional Information:</h3>
-            <li>
-              <Link className="ml-4 text-blue-600 hover:text-red-400" to="cast">
-                Cast
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="ml-4 text-blue-600 hover:text-red-400"
-                to="reviews"
-              >
-                Reviews
-              </Link>
-            </li>
-          </ul>
-        </>
-      )}
+      <MovieDetails
+        to={backLinkRef.current}
+        src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
+        title={movie?.title}
+        releaseDate={movie?.release_date.split('-')[0]}
+        tagline={movie?.tagline}
+        averageVote={movie?.vote_average.toFixed(1)}
+        runtime={movie?.runtime}
+        overview={movie?.overview}
+        genres={movie?.genres.map(({ name }) => name).join(', ')}
+      />
+
+      <AdditionalInfo
+        title={'Additional Information:'}
+        toCast={'cast'}
+        toReviews={'reviews'}
+      />
 
       <Suspense fallback={<Loader />}>
         <Outlet />
@@ -87,4 +64,4 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;

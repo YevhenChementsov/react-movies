@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Movies = () => {
+const MoviesPage = () => {
   return (
     <>
       <div>
@@ -14,4 +14,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default MoviesPage;

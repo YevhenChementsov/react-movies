@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 
-import Copyright from 'components/Footer/Copyright/Copyright';
-import Footer from 'components/Footer/Footer';
-import Header from 'components/Header/Header';
+import Copyright from 'components/Layout/Footer/Copyright/Copyright';
+import Footer from 'components/Layout/Footer/Footer';
+import Header from 'components/Layout/Header/Header';
 import Loader from 'components/Loader/Loader';
-import Main from 'components/Main/Main';
-import Navigation from 'components/Header/Navigation/Navigation';
+import Main from 'components/Layout/Main/Main';
+import Navigation from 'components/Layout/Header/Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
-import Container from 'components/Container/Container';
+import Container from 'components/Layout/Container/Container';
 
 export const Layout = () => {
   return (

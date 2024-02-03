@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axiosInstance from 'api/tmdbApi';
 import { Link, useLocation } from 'react-router-dom';
 
-const Home = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
   const [err, setError] = useState('');
   const location = useLocation();
@@ -51,4 +51,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
