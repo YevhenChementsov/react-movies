@@ -9,14 +9,14 @@ import { Outlet, useLocation, useParams } from 'react-router-dom';
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   // const [err, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
+    // setLoading(true);
 
     const fetchData = async () => {
       try {
@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
           signal: controller.current,
         });
         setMovie(res.data);
-        setLoading(false);
+        // setLoading(false);
       } catch (error) {
         // setError(error.message);
         console.log(error);
@@ -37,6 +37,8 @@ const MovieDetailsPage = () => {
       controller.abort();
     };
   }, [movieId]);
+  console.log(movie);
+
   return (
     <>
       <MovieDetails

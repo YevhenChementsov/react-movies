@@ -20,30 +20,27 @@ const MovieDetails = ({
       >
         &#8920; Go back
       </Link>
-      <div className="mt-2 flex pb-4 shadow-lg">
+      <div className="mt-2 flex gap-4 pb-4 shadow-lg">
         <img className="rounded-lg" src={src} alt={title} />
         <article className="flex flex-col gap-2">
-          <h2>
-            <b>
-              {title}
-              <span>({releaseDate})</span>
-            </b>
+          <h2 className="flex gap-1 font-bold">
+            {title}
+            <span>({releaseDate})</span>
           </h2>
-          <p>&#171;{tagline}&#187;</p>
-          <p>
-            <b>
-              {averageVote}/10
-              <span>{runtime} min.</span>
-            </b>
-          </p>
+          {tagline && <p>&#171;{tagline}&#187;</p>}
+          <h3>
+            <b>Runtime:</b> {runtime} min.
+          </h3>
           <h3>
             <b>Overview:</b>
           </h3>
           <p>{overview}</p>
           <h3>
-            <b>Genres:</b>
+            <b>Genres:</b> <span>{genres}</span>
           </h3>
-          <p>{genres}</p>
+          <h3>
+            <b>Rating:</b> {averageVote}/10
+          </h3>
         </article>
       </div>
     </>
@@ -51,15 +48,15 @@ const MovieDetails = ({
 };
 
 MovieDetails.propTypes = {
-  to: PropTypes.string.isRequired,
+  to: PropTypes.object,
   src: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
-  tagline: PropTypes.string.isRequired,
-  averageVote: PropTypes.string.isRequired,
-  runtime: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  genres: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  releaseDate: PropTypes.string,
+  tagline: PropTypes.string,
+  averageVote: PropTypes.string,
+  runtime: PropTypes.number,
+  overview: PropTypes.string,
+  genres: PropTypes.string,
 };
 
 export default MovieDetails;
