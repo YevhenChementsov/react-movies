@@ -6,14 +6,11 @@ const Loader = () => {
       aria-label="Loading Spinner"
       color="#f00"
       cssOverride={{
-        display: 'block',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '10vh',
       }}
-      margin={5}
-      size={20}
     />
   );
 };

@@ -20,14 +20,14 @@ const MovieDetails = ({
       >
         &#8920; Go back
       </Link>
-      <div className="mt-2 flex gap-4 pb-4 shadow-lg">
+      <div className="mt-2 flex gap-4 pb-4">
         <img className="rounded-lg" src={src} alt={title} />
         <article className="flex flex-col gap-2">
           <h2 className="flex gap-1 font-bold">
             {title}
             <span>({releaseDate})</span>
           </h2>
-          {tagline && <p>&#171;{tagline}&#187;</p>}
+          {tagline ? <p>&#171;{tagline}&#187;</p> : null}
           <h3>
             <b>Runtime:</b> {runtime} min.
           </h3>
@@ -48,7 +48,7 @@ const MovieDetails = ({
 };
 
 MovieDetails.propTypes = {
-  to: PropTypes.object,
+  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   src: PropTypes.string.isRequired,
   title: PropTypes.string,
   releaseDate: PropTypes.string,

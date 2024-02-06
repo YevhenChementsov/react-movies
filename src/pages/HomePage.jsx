@@ -35,14 +35,14 @@ const HomePage = () => {
     <>
       <h2 className="mt-4 text-2xl font-semibold">Trending today</h2>
       <ul className="mt-4">
-        {movies?.map(movie => (
-          <li key={movie.id} className="ml-4">
+        {movies?.map(({ id, title }) => (
+          <li key={id} className="ml-4">
             <Link
-              to={`/movies/${movie.id}`}
+              to={`/movies/${id}`}
               state={{ from: location }}
               className="text-blue-600 hover:text-red-400"
             >
-              -&nbsp;&nbsp;{movie?.title}
+              -&nbsp;&nbsp;{title}
             </Link>
           </li>
         ))}

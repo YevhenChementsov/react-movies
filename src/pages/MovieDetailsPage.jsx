@@ -1,22 +1,20 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 
 import axiosInstance from 'api/tmdbApi';
-import AdditionalInfo from 'components/Layout/Main/MovieDetails/AdditionalInfo/AdditionalInfo';
-import MovieDetails from 'components/Layout/Main/MovieDetails/MovieDetails';
+import AdditionalInfo from 'components/AdditionalInfo/AdditionalInfo';
 import Loader from 'components/Loader/Loader';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   // const [err, setError] = useState('');
-  // const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const controller = new AbortController();
-    // setLoading(true);
 
     const fetchData = async () => {
       try {
@@ -24,7 +22,6 @@ const MovieDetailsPage = () => {
           signal: controller.current,
         });
         setMovie(res.data);
-        // setLoading(false);
       } catch (error) {
         // setError(error.message);
         console.log(error);

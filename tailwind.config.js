@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        mobile: { max: '767.97px' },
-        tablet: { max: '1023.97px' },
+        mobile: { min: '320px' },
+        tablet: { min: '768px' },
+        laptop: { min: '1024px' },
+        default: { min: '1440px' },
       },
     },
   },
