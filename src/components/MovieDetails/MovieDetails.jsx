@@ -16,7 +16,7 @@ const MovieDetails = ({
     <>
       <Link
         to={to}
-        className="mt-4 inline-block rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
+        className="rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
       >
         &#8920; Go back
       </Link>
@@ -24,8 +24,7 @@ const MovieDetails = ({
         <img className="rounded-lg" src={src} alt={title} />
         <article className="flex flex-col gap-2">
           <h2 className="flex gap-1 font-bold">
-            {title}
-            <span>({releaseDate})</span>
+            {title} ({releaseDate})
           </h2>
           {tagline ? <p>&#171;{tagline}&#187;</p> : null}
           <h3>

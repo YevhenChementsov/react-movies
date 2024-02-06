@@ -28,23 +28,29 @@ const Cast = () => {
     };
     // eslint-disable-next-line
   }, []);
-  console.log(cast);
+
   return (
-    <ul>
+    <ul className="mt-4 flex flex-col gap-4">
       {cast &&
         cast.cast
           .map(
-            ({ id, profile_path, name, character, original_name }) =>
+            ({ id, profile_path, name, character }) =>
               profile_path && (
-                <li key={id}>
+                <li key={id} className="flex">
                   <img
                     src={`https://image.tmdb.org/t/p/w92/${profile_path}`}
                     alt={name}
                   />
-                  <h3>{original_name}</h3>
-                  <p>
-                    Character: <span>{character}</span>
-                  </p>
+                  <div className="p-3">
+                    <h3>
+                      <b>{name}</b>
+                    </h3>
+                    {character && (
+                      <p className="block text-sm">
+                        Character: <span>{character}</span>
+                      </p>
+                    )}
+                  </div>
                 </li>
               ),
           )

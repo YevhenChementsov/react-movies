@@ -34,7 +34,6 @@ const MovieDetailsPage = () => {
       controller.abort();
     };
   }, [movieId]);
-  console.log(movie);
 
   return (
     <>
