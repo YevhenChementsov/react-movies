@@ -12,10 +12,10 @@ const Cast = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axiosInstance.get(`movie/${movieId}/credits`, {
+        const { data } = await axiosInstance.get(`movie/${movieId}/credits`, {
           signal: controller.current,
         });
-        setCast(res.data);
+        setCast(data);
       } catch (error) {
         console.log(error);
       }
@@ -30,7 +30,7 @@ const Cast = () => {
   }, []);
 
   return (
-    <ul className="mt-4 flex flex-col gap-4">
+    <ul className="mt-4 flex flex-col gap-4 [grid-area:4/1/5/3]">
       {cast &&
         cast.cast
           .map(

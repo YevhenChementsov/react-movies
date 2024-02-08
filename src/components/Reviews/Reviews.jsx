@@ -12,10 +12,10 @@ const Reviews = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axiosInstance.get(`movie/${movieId}/reviews`, {
+        const { data } = await axiosInstance.get(`movie/${movieId}/reviews`, {
           signal: controller.current,
         });
-        setReviews(res.data);
+        setReviews(data);
       } catch (error) {
         console.log(error);
       }
@@ -32,7 +32,7 @@ const Reviews = () => {
   return (
     <>
       {reviews?.results.length > 1 ? (
-        <ul className="mt-4 flex flex-col gap-4">
+        <ul className="mt-4 flex flex-col gap-4 [grid-area:4/1/5/3]">
           {reviews.results.map(
             ({ author, content, updated_at, id }) =>
               author && (
@@ -49,7 +49,7 @@ const Reviews = () => {
           )}
         </ul>
       ) : (
-        <p className="mt-4">
+        <p className="mt-4 [grid-area:4/1/5/3]">
           Sorry, we don&apos;t have any reviews for this movie now.
         </p>
       )}

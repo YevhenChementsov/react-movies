@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-const useAxios = ({ axiosInstance, method, url, requestConfig = {} }) => {
-  const [response, setResponse] = useState([]);
+const useAxios = ({ axiosInstance, url, dependencies = [] }) => {
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -13,11 +13,10 @@ const useAxios = ({ axiosInstance, method, url, requestConfig = {} }) => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const res = await axiosInstance[method.toLowerCase()](url, {
-          ...requestConfig,
+        const { data } = await axiosInstance.get(url, {
           signal: controller.current,
         });
-        setResponse(res.data.results);
+        setResponse(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,7 +30,7 @@ const useAxios = ({ axiosInstance, method, url, requestConfig = {} }) => {
       controller.abort();
     };
     // eslint-disable-next-line
-  }, []);
+  }, dependencies);
 
   return [response, error, loading];
 };
@@ -44,9 +43,8 @@ useAxios.propTypes = {
       Authorization: PropTypes.string.isRequired,
     }),
   }),
-  method: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  requestConfig: PropTypes.object,
+  dependencies: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default useAxios;

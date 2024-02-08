@@ -1,42 +1,24 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { Suspense, useRef } from 'react';
 
 import axiosInstance from 'api/tmdbApi';
 import AdditionalInfo from 'components/AdditionalInfo/AdditionalInfo';
 import Loader from 'components/Loader/Loader';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
+import useAxios from 'hooks/useAxios';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
-  const [movie, setMovie] = useState(null);
-  // const [err, setError] = useState('');
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
+  const [movie] = useAxios({
+    axiosInstance,
+    url: `movie/${movieId}`,
+    dependencies: [movieId],
+  });
 
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchData = async () => {
-      try {
-        const res = await axiosInstance.get(`movie/${movieId}`, {
-          signal: controller.current,
-        });
-        setMovie(res.data);
-      } catch (error) {
-        // setError(error.message);
-        console.log(error);
-      }
-    };
-
-    fetchData();
-
-    return () => {
-      controller.abort();
-    };
-  }, [movieId]);
-
-  return (
-    <>
+  return movie ? (
+    <div className="grid gap-x-3 gap-y-4 [grid-template-columns:auto_1fr]">
       <MovieDetails
         to={backLinkRef.current}
         src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
@@ -48,17 +30,17 @@ const MovieDetailsPage = () => {
         overview={movie?.overview}
         genres={movie?.genres.map(({ name }) => name).join(', ')}
       />
-
       <AdditionalInfo
         title={'Additional Information:'}
-        toCast={'cast'}
-        toReviews={'reviews'}
+        linkToCast={'cast'}
+        linkToReviews={'reviews'}
       />
-
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </>
+    </div>
+  ) : (
+    <Loader />
   );
 };
 
