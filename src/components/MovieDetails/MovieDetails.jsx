@@ -57,4 +57,3 @@ MovieDetails.propTypes = {
 };
 
 export default MovieDetails;
-//<div className="mt-3 flex gap-4 pb-4">

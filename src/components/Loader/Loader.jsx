@@ -9,7 +9,6 @@ const Loader = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '10vh',
       }}
     />
   );

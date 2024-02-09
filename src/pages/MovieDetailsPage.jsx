@@ -18,7 +18,7 @@ const MovieDetailsPage = () => {
   });
 
   return movie ? (
-    <div className="grid gap-x-3 gap-y-4 [grid-template-columns:auto_1fr]">
+    <div className="grid gap-x-3 gap-y-4 [grid-template-columns:minmax(342px,_auto)_1fr]">
       <MovieDetails
         to={backLinkRef.current}
         src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}

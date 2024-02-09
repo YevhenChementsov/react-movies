@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const AdditionalInfo = ({ title, linkToCast, linkToReviews }) => {
   return (
     <div className="[grid-area:3/1/4/3]">
-      <h3 className="mt-4">
+      <h3>
         <b>{title}</b>
       </h3>
       <ul>
