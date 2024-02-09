@@ -8,6 +8,7 @@ const useAxios = ({ axiosInstance, url, dependencies = [] }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    // if (!response) return;
     const controller = new AbortController();
 
     setLoading(true);
