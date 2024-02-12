@@ -8,11 +8,10 @@ const useAxios = ({ axiosInstance, url, dependencies = [] }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // if (!response) return;
     const controller = new AbortController();
 
-    setLoading(true);
     const fetchData = async () => {
+      setLoading(true);
       try {
         const { data } = await axiosInstance.get(url, {
           signal: controller.current,

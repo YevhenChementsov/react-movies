@@ -1,6 +1,6 @@
 import axiosInstance from 'api/tmdbApi';
 import Loader from 'components/Loader/Loader';
-import { MovieList } from 'components/MovieList/MovieList';
+import MovieList from 'components/MovieList/MovieList';
 import useAxios from 'hooks/useAxios';
 
 const HomePage = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import axiosInstance from 'api/tmdbApi';
-import { MovieList } from 'components/MovieList/MovieList';
+import MovieList from 'components/MovieList/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
 import useAxios from 'hooks/useAxios';
 import { useSearchParams } from 'react-router-dom';
@@ -17,11 +17,11 @@ const MoviesPage = () => {
   });
 
   useEffect(() => {
-    if (query === '') return;
+    if (!query) return;
     setQueryURL(query);
     // eslint-disable-next-line
-  }, [queryURL]);
-  console.log(query);
+  }, []);
+
   const handleSubmitValue = value => setQueryURL(value);
 
   return (
