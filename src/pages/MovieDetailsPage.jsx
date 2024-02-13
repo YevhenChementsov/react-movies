@@ -35,7 +35,7 @@ const MovieDetailsPage = () => {
         linkToCast={'cast'}
         linkToReviews={'reviews'}
       />
-      <Suspense fallback={<Loader />}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </div>
