@@ -2,15 +2,9 @@ import RiseLoader from 'react-spinners/RiseLoader';
 
 const Loader = () => {
   return (
-    <RiseLoader
-      aria-label="Loading Spinner"
-      color="#f00"
-      cssOverride={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    />
+    <div className="flex h-full w-full items-center justify-center">
+      <RiseLoader aria-label="Loading Spinner" color="#f00" />
+    </div>
   );
 };
 

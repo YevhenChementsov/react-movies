@@ -9,13 +9,11 @@ const HomePage = () => {
     url: 'trending/movie/day',
   });
 
-  return movies ? (
+  return (
     <>
       <h2 className="mt-4 text-2xl font-semibold">Trending today</h2>
-      <MovieList movies={movies} />
+      {movies ? <MovieList movies={movies} /> : <Loader />}
     </>
-  ) : (
-    <Loader />
   );
 };
 
