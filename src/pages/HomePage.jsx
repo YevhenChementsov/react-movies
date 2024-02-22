@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h2 className="mt-4 text-2xl font-semibold">Trending today</h2>
+      <h2 className="text-2xl font-semibold">Trending today</h2>
       {movies ? <MovieList movies={movies} /> : <Loader />}
     </>
   );

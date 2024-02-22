@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const MovieDetails = ({
-  to,
   src,
   title,
   releaseDate,
@@ -14,9 +12,6 @@ const MovieDetails = ({
 }) => {
   return (
     <>
-      <button className="w-[96px] rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out [grid-area:1/1/2/3]  hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400">
-        <Link to={to}>&#60; Go back</Link>
-      </button>
       <div className="[grid-area:2/1/3/2]">
         <img className="rounded-lg" src={src} alt={title} />
       </div>
