@@ -6,6 +6,9 @@ import Loader from 'components/Loader/Loader';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import useAxios from 'hooks/useAxios';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { yearFromDate } from 'utils/yearFromDate';
+import { movieGenres } from 'utils/movieGenres';
+import { averageVote } from 'utils/averageVote';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -30,12 +33,12 @@ const MovieDetailsPage = () => {
           <MovieDetails
             src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
             title={movie?.title}
-            releaseDate={movie?.release_date.split('-')[0]}
+            releaseDate={yearFromDate(movie?.release_date)}
             tagline={movie?.tagline}
-            averageVote={movie?.vote_average.toFixed(1)}
+            averageVote={averageVote(movie?.vote_average)}
             runtime={movie?.runtime}
             overview={movie?.overview}
-            genres={movie?.genres.map(({ name }) => name).join(', ')}
+            genres={movieGenres(movie?.genres)}
           />
           <AdditionalInfo
             title={'Additional Information:'}

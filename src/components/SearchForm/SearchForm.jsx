@@ -19,20 +19,17 @@ const SearchForm = ({ onSubmit }) => {
         <input
           type="search"
           autoFocus
-          className="w-[clamp(176px,50vw,376px)] rounded-lg border border-solid border-black px-3 py-1 outline-offset-0 outline-red-400"
+          className="w-[clamp(176px,61vw,23.5rem)] rounded-lg border border-solid border-black px-3 py-1 outline-offset-0 outline-red-400"
           value={query}
           onChange={updateQuery}
         />
         <button
           type="submit"
-          className="w-[96px] rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
+          className="w-[clamp(76px,12vw,96px)] rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
         >
           Search
         </button>
       </form>
-      <h2 className="mt-2">
-        Searching results for <b>{query}</b>:
-      </h2>
     </>
   );
 };

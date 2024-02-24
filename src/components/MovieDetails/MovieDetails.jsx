@@ -17,7 +17,7 @@ const MovieDetails = ({
       </div>
       <article className="flex flex-col gap-2 md:[grid-area:1/2/2/3]">
         <h2 className="text-center text-lg font-bold md:text-start">
-          {title}
+          {title}&nbsp;
           <span>({releaseDate})</span>
         </h2>
         {tagline ? (
@@ -34,10 +34,7 @@ const MovieDetails = ({
           Genres: <span className="font-normal italic">{genres}</span>
         </h3>
         <h3 className="font-bold">
-          Rating:{' '}
-          <span className="font-normal italic">
-            {averageVote > 0 ? averageVote + '/10' : 'No grades yet'}
-          </span>
+          Rating: <span className="font-normal italic">{averageVote}</span>
         </h3>
       </article>
     </>
