@@ -11,7 +11,7 @@ const Cast = () => {
   });
 
   return (
-    <ul className="flex flex-col gap-4 [grid-area:4/1/5/3]">
+    <ul className="flex flex-col gap-4 md:[grid-area:3/1/4/3]">
       {cast ? (
         cast?.cast
           .map(

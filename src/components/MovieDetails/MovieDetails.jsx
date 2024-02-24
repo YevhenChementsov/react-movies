@@ -12,27 +12,32 @@ const MovieDetails = ({
 }) => {
   return (
     <>
-      <div className="[grid-area:2/1/3/2]">
+      <div className="md:[grid-area:1/1/2/2]">
         <img className="rounded-lg" src={src} alt={title} />
       </div>
-      <article className="flex flex-col gap-2 [grid-area:2/2/3/3]">
-        <h2 className="flex gap-1 font-bold">
-          {title} ({releaseDate})
+      <article className="flex flex-col gap-2 md:[grid-area:1/2/2/3]">
+        <h2 className="text-center text-lg font-bold md:text-start">
+          {title}
+          <span>({releaseDate})</span>
         </h2>
-        {tagline ? <p>&#171;{tagline}&#187;</p> : null}
-        <h3>
-          <b>Runtime:</b> {runtime} min.
+        {tagline ? (
+          <i className="text-center indent-4 md:text-start">
+            &#171;{tagline}&#187;
+          </i>
+        ) : null}
+        <h3 className="font-bold">
+          Runtime: <span className="font-normal italic">{runtime} min.</span>
         </h3>
-        <h3>
-          <b>Overview:</b>
+        <h3 className="font-bold">Overview:</h3>
+        <p className="indent-4 italic">{overview}</p>
+        <h3 className="font-bold">
+          Genres: <span className="font-normal italic">{genres}</span>
         </h3>
-        <p>{overview}</p>
-        <h3>
-          <b>Genres:</b> <span>{genres}</span>
-        </h3>
-        <h3>
-          <b>Rating:</b>{' '}
-          {averageVote > 0 ? averageVote + '/10' : 'No grades yet'}
+        <h3 className="font-bold">
+          Rating:{' '}
+          <span className="font-normal italic">
+            {averageVote > 0 ? averageVote + '/10' : 'No grades yet'}
+          </span>
         </h3>
       </article>
     </>
@@ -40,7 +45,6 @@ const MovieDetails = ({
 };
 
 MovieDetails.propTypes = {
-  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   src: PropTypes.string.isRequired,
   title: PropTypes.string,
   releaseDate: PropTypes.string,

@@ -21,15 +21,14 @@ const MovieDetailsPage = () => {
     <>
       <Link
         to={backLinkRef.current}
-        className="rounded-lg border border-solid border-transparent bg-red-400 px-2.5 py-1.5 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
+        className="inline-grid rounded-lg border border-solid border-transparent bg-red-400 px-2 py-1 text-white transition-colors ease-in-out hover:border-solid hover:border-red-400 hover:bg-white hover:text-red-400"
       >
         &#60; Go back
       </Link>
       {movie ? (
-        <div className="grid gap-x-3 gap-y-4 [grid-template-columns:minmax(342px,_auto)_1fr]">
+        <div className="mt-4 grid gap-x-4 gap-y-3 md:[grid-template-columns:342px_1fr]">
           <MovieDetails
-            to={backLinkRef.current}
-            src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
             title={movie?.title}
             releaseDate={movie?.release_date.split('-')[0]}
             tagline={movie?.tagline}

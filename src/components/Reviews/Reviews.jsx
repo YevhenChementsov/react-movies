@@ -11,7 +11,7 @@ const Reviews = () => {
   });
 
   return (
-    <div className="[grid-area:4/1/5/3]">
+    <div className="md:[grid-area:3/1/4/3]">
       {reviews ? (
         reviews?.results.length > 1 ? (
           <ul className="flex flex-col gap-4">
