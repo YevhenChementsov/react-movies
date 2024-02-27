@@ -8,6 +8,8 @@ const useAxios = ({ axiosInstance, url, dependencies = [] }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (url === 'search/movie?query=') return;
+
     const controller = new AbortController();
 
     const fetchData = async () => {

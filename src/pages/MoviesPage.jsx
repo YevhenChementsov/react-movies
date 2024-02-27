@@ -17,7 +17,6 @@ const MoviesPage = () => {
   });
 
   useEffect(() => {
-    if (!query) return;
     setQueryURL(query);
     // eslint-disable-next-line
   }, []);
